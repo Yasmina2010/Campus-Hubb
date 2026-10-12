@@ -1,0 +1,784 @@
+css
+/* ---------- Basics ---------- */
+:root {
+  --primary: #2457d6;
+  --primary-dark: #1a3f9c;
+  --bg: #f6f8fc;
+  --card: #ffffff;
+  --text: #1b2433;
+  --muted: #5d6b82;
+  --border: #dde3ee;
+  --accent: #ffb703;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+h1, h2, h3 { line-height: 1.25; margin: 0 0 0.5rem; }
+p { margin: 0 0 0.75rem; }
+a { color: var(--primary); }
+
+.container { width: min(1100px, 100% - 2rem); margin-inline: auto; padding-block: 1.5rem; }
+.muted { color: var(--muted); font-size: 0.9rem; }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);
+}
+
+.page-title { font-size: 1.8rem; }
+.page-intro { color: var(--muted); }
+.section-title { font-size: 1.3rem; margin-top: 2rem; }
+
+/* ---------- Demo banner ---------- */
+.demo-banner {
+  background: var(--accent);
+  color: #3a2a00;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 1rem;
+}
+
+/* ---------- Header & navigation ---------- */
+.site-header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.header-inner {
+  width: min(1100px, 100% - 2rem);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.7rem;
+}
+.logo { font-weight: 800; font-size: 1.25rem; color: var(--primary); text-decoration: none; }
+
+.menu-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1.3rem;
+  padding: 0.2rem 0.65rem;
+  cursor: pointer;
+}
+
+.nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1rem 1rem;
+}
+.nav.open { display: flex; flex-direction: column; gap: 0.25rem; }
+.nav a {
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+}
+.nav a:hover { background: var(--bg); }
+.nav a.active { background: var(--primary); color: #fff; }
+
+@media (min-width: 760px) {
+  .menu-toggle { display: none; }
+  .nav {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    border: 0;
+    padding: 0;
+    gap: 0.25rem;
+  }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--primary), #5b86f0);
+  color: #fff;
+  padding: 3rem 0 2.5rem;
+}
+.hero h1 { font-size: 2rem; }
+.hero p { max-width: 560px; font-size: 1.05rem; opacity: 0.95; }
+
+/* ---------- Buttons ---------- */
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: #3a2a00;
+  border: 2px solid var(--accent);
+  padding: 0.65rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.button:hover { filter: brightness(0.95); }
+.button.small { padding: 0.35rem 0.9rem; font-size: 0.95rem; }
+.button.outline { background: transparent; color: var(--primary); border-color: var(--primary); }
+
+/* ---------- Layout helpers ---------- */
+.grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+.stack { display: flex; flex-direction: column; gap: 0.9rem; }
+
+@media (min-width: 600px) {
+  .grid-2, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+}
+.card h3 { font-size: 1.1rem; }
+
+a.tile { text-decoration: none; color: var(--text); transition: transform 0.15s, box-shadow 0.15s; }
+a.tile:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(30, 50, 100, 0.12); }
+.tile-icon { font-size: 1.8rem; display: block; margin-bottom: 0.3rem; }
+.home-previews { margin-top: 1rem; }
+
+/* Small labels on cards */
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-bottom: 0.4rem; }
+.badge {
+  display: inline-block;
+  background: #e5edff;
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+}
+.badge.demo { background: #fff3cd; color: #7a5a00; }
+
+/* ---------- Filter chips & search ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; }
+.chip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.95rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: var(--text);
+}
+.chip.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+.search {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.empty { color: var(--muted); text-align: center; padding: 1.5rem 0; }
+
+/* ---------- Checklist ---------- */
+.progress-row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.progress-bar { background: var(--border); height: 10px; border-radius: 999px; overflow: hidden; margin: 0.4rem 0 1rem; }
+#progress-fill { height: 100%; width: 0; background: #2fa66a; transition: width 0.3s; }
+
+.checklist { list-style: none; margin: 0; padding: 0; }
+.checklist li { border-top: 1px solid var(--border); }
+.checklist label { display: flex; gap: 0.75rem; padding: 0.75rem 0; cursor: pointer; align-items: flex-start; }
+.checklist input { width: 1.2rem; height: 1.2rem; margin-top: 0.2rem; flex-shrink: 0; }
+.checklist input:checked + span { text-decoration: line-through; color: var(--muted); }
+
+/* ---------- Calendar ---------- */
+.cal-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+.cal-controls h2 { margin: 0; font-size: 1.2rem; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 1rem; }
+.cal-head { text-align: center; font-size: 0.75rem; font-weight: 700; color: var(--muted); padding: 0.25rem 0; }
+.cal-day {
+  min-height: 3rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.25rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+.cal-day.blank { border: 0; }
+.cal-day.today { background: var(--primary); color: #fff; border-color: var(--primary); }
+.cal-dots { display: flex; justify-content: center; gap: 3px; margin-top: 3px; }
+.cal-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+.event-row { display: flex; gap: 1rem; align-items: flex-start; }
+.event-date {
+  background: #e5edff;
+  color: var(--primary-dark);
+  border-radius: 10px;
+  text-align: center;
+  min-width: 3.6rem;
+  padding: 0.4rem 0.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.event-date small { display: block; font-size: 0.7rem; text-transform: uppercase; }
+.event-date span { font-size: 1.3rem; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: 3rem;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+  text-align: center;
+  padding: 1.25rem 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+4. JavaScript
+js/data.js (all demo content lives here)
+This is the file you'll edit most. Dates are calculated from today so the demo never looks outdated.
+
+js
+// =====================================================
+// Campus Hub: DEMO DATA
+// Everything below is sample content for the first version.
+// Edit, add, or delete items here to change the site.
+// =====================================================
+
+// --- Small date helpers ---
+function inDays(n) {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + n);
+  return d;
+}
+function toISO(d) {
+  return d.getFullYear() + "-" +
+    String(d.getMonth() + 1).padStart(2, "0") + "-" +
+    String(d.getDate()).padStart(2, "0");
+}
+// Turns "2026-10-12" into a Date (in local time)
+function parseISO(s) {
+  const [y, m, d] = s.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+
+// --- 1. School Announcements ---
+const announcements = [
+  {
+    title: "Welcome Back Assembly",
+    category: "General",
+    date: toISO(inDays(-1)),
+    body: "All students are invited to the welcome assembly in the main hall. Doors open 10 minutes before first period."
+  },
+  {
+    title: "Library Extended Hours",
+    category: "Academics",
+    date: toISO(inDays(-3)),
+    body: "The library will stay open until 6:00 PM on weekdays during exam preparation weeks."
+  },
+  {
+    title: "Basketball Tryouts This Week",
+    category: "Sports",
+    date: toISO(inDays(-4)),
+    body: "Tryouts for the school basketball team are open to all grades. Bring sports shoes and a water bottle."
+  },
+  {
+    title: "Cafeteria Menu Update",
+    category: "General",
+    date: toISO(inDays(-6)),
+    body: "New healthy meal options are available. Vegetarian choices are now offered every day."
+  },
+  {
+    title: "Science Fair Sign-Ups Open",
+    category: "Academics",
+    date: toISO(inDays(-8)),
+    body: "Register your project with your science teacher. Teams of up to three students are welcome."
+  },
+  {
+    title: "Drama Club Auditions",
+    category: "Clubs",
+    date: toISO(inDays(-10)),
+    body: "Auditions for the winter play are open. No experience needed, just bring your enthusiasm."
+  }
+];
+
+// --- 2. Grade 10–11 College Guidance ---
+const guidance = {
+  "Grade 10": [
+    { id: "g10-1", text: "Explore your interests and write down 5 subjects or careers you enjoy." },
+    { id: "g10-2", text: "Meet your counselor to talk about your goals." },
+    { id: "g10-3", text: "Choose challenging courses that fit your interests." },
+    { id: "g10-4", text: "Join at least one club, sport, or volunteer activity." },
+    { id: "g10-5", text: "Start a simple record of your achievements and activities." },
+    { id: "g10-6", text: "Try a practice test to see where you stand." }
+  ],
+  "Grade 11": [
+    { id: "g11-1", text: "Build a first list of 8–10 colleges or programs." },
+    { id: "g11-2", text: "Plan your standardized test dates and prepare." },
+    { id: "g11-3", text: "Visit colleges (in person or online) and take notes." },
+    { id: "g11-4", text: "Ask two teachers if they would write you a recommendation." },
+    { id: "g11-5", text: "Research scholarships and note every deadline." },
+    { id: "g11-6", text: "Draft ideas for your personal essay." }
+  ]
+};
+
+const guidanceTips = [
+  { title: "Start early", body: "Small steps each month are easier than a big rush in Grade 12." },
+  { title: "Keep a deadline list", body: "Write every date in one place so nothing is missed." },
+  { title: "Ask for help", body: "Your counselor and teachers want to support you. Just ask." }
+];
+
+// --- 3. Student Opportunities ---
+const opportunities = [
+  {
+    title: "Community Scholarship",
+    type: "Scholarship",
+    deadline: toISO(inDays(30)),
+    grades: "Grades 10–11",
+    body: "A sample scholarship for students who show leadership in their community."
+  },
+  {
+    title: "Beach Clean-Up Day",
+    type: "Volunteering",
+    deadline: toISO(inDays(14)),
+    grades: "All grades",
+    body: "Join a team to clean the local shoreline. Gloves and bags provided."
+  },
+  {
+    title: "Robotics Club",
+    type: "Club",
+    deadline: toISO(inDays(20)),
+    grades: "All grades",
+    body: "Build and program robots every Thursday after school. Beginners welcome."
+  },
+  {
+    title: "Young Writers Contest",
+    type: "Competition",
+    deadline: toISO(inDays(45)),
+    grades: "Grades 10–11",
+    body: "Submit a short story of up to 1,500 words. Winners are published in the school magazine."
+  },
+  {
+    title: "Summer Job Shadow Program",
+    type: "Internship",
+    deadline: toISO(inDays(60)),
+    grades: "Grade 11",
+    body: "Spend a day with a local professional to learn what their job is really like."
+  },
+  {
+    title: "Peer Tutoring Team",
+    type: "Volunteering",
+    deadline: toISO(inDays(25)),
+    grades: "Grades 10–11",
+    body: "Help younger students with math and reading twice a week."
+  },
+  {
+    title: "STEM Challenge",
+    type: "Competition",
+    deadline: toISO(inDays(35)),
+    grades: "All grades",
+    body: "Teams solve a real-world engineering puzzle over one weekend."
+  },
+  {
+    title: "Arts Merit Award",
+    type: "Scholarship",
+    deadline: toISO(inDays(50)),
+    grades: "Grade 11",
+    body: "For students with a portfolio in visual arts, music, or theatre."
+  }
+];
+
+// --- 4. School Calendar ---
+const calendarEvents = [
+  { title: "Welcome Assembly",        date: toISO(inDays(2)),  time: "9:00 AM",  type: "Event" },
+  { title: "College Info Night",      date: toISO(inDays(6)),  time: "6:30 PM",  type: "Guidance" },
+  { title: "Math Midterm Exam",       date: toISO(inDays(9)),  time: "10:00 AM", type: "Exam" },
+  { title: "Parent-Teacher Meetings", date: toISO(inDays(13)), time: "3:00 PM",  type: "Meeting" },
+  { title: "Beach Clean-Up Day",      date: toISO(inDays(14)), time: "9:00 AM",  type: "Event" },
+  { title: "Science Fair",            date: toISO(inDays(21)), time: "1:00 PM",  type: "Event" },
+  { title: "Scholarship Deadline",    date: toISO(inDays(30)), time: "11:59 PM", type: "Deadline" },
+  { title: "School Holiday",          date: toISO(inDays(34)), time: "All day",  type: "Holiday" },
+  { title: "English Final Exam",      date: toISO(inDays(40)), time: "9:00 AM",  type: "Exam" },
+  { title: "Winter Play",             date: toISO(inDays(52)), time: "7:00 PM",  type: "Event" }
+];
+js/main.js (shared header/footer plus the logic for each page)
+
+js
+// =====================================================
+// Campus Hub: main script
+// Builds the header/footer on every page, then runs the
+// code for whichever page is open (set by <body data-page="...">).
+// =====================================================
+
+// ---------- Helpers ----------
+
+// Creates an element safely (uses textContent, never raw HTML)
+function el(tag, options = {}, children = []) {
+  const node = document.createElement(tag);
+  if (options.class) node.className = options.class;
+  if (options.text) node.textContent = options.text;
+  if (options.attrs) {
+    for (const [key, value] of Object.entries(options.attrs)) node.setAttribute(key, value);
+  }
+  [].concat(children).forEach(child => { if (child) node.appendChild(child); });
+  return node;
+}
+
+function formatDate(date) {
+  return date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+}
+
+function todayStart() {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+// Row of filter buttons. Calls onChange(label) when one is clicked.
+function makeFilters(container, options, onChange, includeAll = true) {
+  const labels = includeAll ? ["All", ...options] : options;
+  container.innerHTML = "";
+  labels.forEach((label, index) => {
+    const button = el("button", {
+      class: "chip" + (index === 0 ? " active" : ""),
+      text: label,
+      attrs: { type: "button" }
+    });
+    button.addEventListener("click", () => {
+      container.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      button.classList.add("active");
+      onChange(label);
+    });
+    container.appendChild(button);
+  });
+}
+
+const DEMO_BADGE = () => el("span", { class: "badge demo", text: "Demo data" });
+
+// ---------- Header & footer ----------
+
+const NAV_LINKS = [
+  { page: "home",          label: "Home",          href: "index.html" },
+  { page: "announcements", label: "Announcements", href: "announcements.html" },
+  { page: "guidance",      label: "College Guidance", href: "college-guidance.html" },
+  { page: "opportunities", label: "Opportunities", href: "opportunities.html" },
+  { page: "calendar",      label: "Calendar",      href: "calendar.html" }
+];
+
+function renderHeader() {
+  const target = document.getElementById("site-header");
+  if (!target) return;
+  const current = document.body.dataset.page;
+
+  const links = NAV_LINKS.map(link =>
+    `<a href="${link.href}" class="${link.page === current ? "active" : ""}">${link.label}</a>`
+  ).join("");
+
+  target.innerHTML = `
+    <div class="demo-banner">Demo version: all content is sample data</div>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="index.html">🏫 Campus Hub</a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+        <nav class="nav" aria-label="Main navigation">${links}</nav>
+      </div>
+    </header>`;
+
+  const toggle = target.querySelector(".menu-toggle");
+  const nav = target.querySelector(".nav");
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+}
+
+function renderFooter() {
+  const target = document.getElementById("site-footer");
+  if (!target) return;
+  target.innerHTML = `
+    <footer class="site-footer">
+      <p>© ${new Date().getFullYear()} Campus Hub · Demo version with sample data only.</p>
+    </footer>`;
+}
+
+// ---------- Card builders ----------
+
+function announcementCard(item) {
+  return el("article", { class: "card" }, [
+    el("div", { class: "meta" }, [
+      el("span", { class: "badge", text: item.category }),
+      el("span", { class: "muted", text: formatDate(parseISO(item.date)) }),
+      DEMO_BADGE()
+    ]),
+    el("h3", { text: item.title }),
+    el("p", { text: item.body })
+  ]);
+}
+
+function eventCard(item) {
+  const date = parseISO(item.date);
+  return el("article", { class: "card event-row" }, [
+    el("div", { class: "event-date" }, [
+      el("small", { text: date.toLocaleDateString(undefined, { month: "short" }) }),
+      el("span", { text: String(date.getDate()) })
+    ]),
+    el("div", {}, [
+      el("div", { class: "meta" }, [
+        el("span", { class: "badge", text: item.type }),
+        DEMO_BADGE()
+      ]),
+      el("h3", { text: item.title }),
+      el("p", { class: "muted", text: item.time })
+    ])
+  ]);
+}
+
+function sortedAnnouncements() {
+  return [...announcements].sort((a, b) => parseISO(b.date) - parseISO(a.date));
+}
+
+// ---------- Page: Home ----------
+
+function initHome() {
+  const annBox = document.getElementById("home-announcements");
+  sortedAnnouncements().slice(0, 3).forEach(a => annBox.appendChild(announcementCard(a)));
+
+  const evBox = document.getElementById("home-events");
+  const today = todayStart();
+  calendarEvents
+    .filter(e => parseISO(e.date) >= today)
+    .sort((a, b) => parseISO(a.date) - parseISO(b.date))
+    .slice(0, 3)
+    .forEach(e => evBox.appendChild(eventCard(e)));
+}
+
+// ---------- Page: Announcements ----------
+
+function initAnnouncements() {
+  const filters = document.getElementById("announcement-filters");
+  const list = document.getElementById("announcement-list");
+  const categories = [...new Set(announcements.map(a => a.category))];
+
+  function show(category) {
+    list.innerHTML = "";
+    sortedAnnouncements()
+      .filter(a => category === "All" || a.category === category)
+      .forEach(a => list.appendChild(announcementCard(a)));
+  }
+
+  makeFilters(filters, categories, show);
+  show("All");
+}
+
+// ---------- Page: College Guidance ----------
+
+const CHECKLIST_KEY = "campushub-checklist-demo";
+
+// Saved ticks live in the browser's localStorage (this device only, no database)
+function loadChecked() {
+  try { return JSON.parse(localStorage.getItem(CHECKLIST_KEY)) || {}; }
+  catch (e) { return {}; }
+}
+function saveChecked(data) {
+  try { localStorage.setItem(CHECKLIST_KEY, JSON.stringify(data)); }
+  catch (e) { /* storage unavailable: ignore */ }
+}
+
+function initGuidance() {
+  const tabs = document.getElementById("grade-tabs");
+  const list = document.getElementById("checklist");
+  const title = document.getElementById("checklist-title");
+  const progressText = document.getElementById("checklist-progress");
+  const fill = document.getElementById("progress-fill");
+  const checked = loadChecked();
+  let currentGrade = Object.keys(guidance)[0];
+
+  function updateProgress() {
+    const items = guidance[currentGrade];
+    const done = items.filter(i => checked[i.id]).length;
+    progressText.textContent = `${done} of ${items.length} done`;
+    fill.style.width = (done / items.length * 100) + "%";
+  }
+
+  function showGrade(grade) {
+    currentGrade = grade;
+    title.textContent = grade + " checklist";
+    list.innerHTML = "";
+
+    guidance[grade].forEach(item => {
+      const box = el("input", { attrs: { type: "checkbox" } });
+      box.checked = !!checked[item.id];
+      box.addEventListener("change", () => {
+        checked[item.id] = box.checked;
+        saveChecked(checked);
+        updateProgress();
+      });
+      const label = el("label", {}, [box, el("span", { text: item.text })]);
+      list.appendChild(el("li", {}, [label]));
+    });
+    updateProgress();
+  }
+
+  makeFilters(tabs, Object.keys(guidance), showGrade, false);
+  showGrade(currentGrade);
+
+  const tipsBox = document.getElementById("tips");
+  guidanceTips.forEach(tip => {
+    tipsBox.appendChild(el("article", { class: "card" }, [
+      el("div", { class: "meta" }, [DEMO_BADGE()]),
+      el("h3", { text: tip.title }),
+      el("p", { text: tip.body })
+    ]));
+  });
+}
+
+// ---------- Page: Opportunities ----------
+
+function initOpportunities() {
+  const filters = document.getElementById("opp-filters");
+  const list = document.getElementById("opp-list");
+  const search = document.getElementById("opp-search");
+  const types = [...new Set(opportunities.map(o => o.type))];
+  let activeType = "All";
+
+  function show() {
+    const query = search.value.trim().toLowerCase();
+    list.innerHTML = "";
+
+    const matches = opportunities
+      .filter(o => activeType === "All" || o.type === activeType)
+      .filter(o => (o.title + " " + o.body).toLowerCase().includes(query))
+      .sort((a, b) => parseISO(a.deadline) - parseISO(b.deadline));
+
+    if (matches.length === 0) {
+      list.appendChild(el("p", { class: "empty", text: "No opportunities found. Try a different search." }));
+      return;
+    }
+
+    matches.forEach(o => {
+      list.appendChild(el("article", { class: "card" }, [
+        el("div", { class: "meta" }, [
+          el("span", { class: "badge", text: o.type }),
+          el("span", { class: "muted", text: o.grades }),
+          DEMO_BADGE()
+        ]),
+        el("h3", { text: o.title }),
+        el("p", { text: o.body }),
+        el("p", { class: "muted", text: "Deadline: " + formatDate(parseISO(o.deadline)) })
+      ]));
+    });
+  }
+
+  makeFilters(filters, types, label => { activeType = label; show(); });
+  search.addEventListener("input", show);
+  show();
+}
+
+// ---------- Page: Calendar ----------
+
+function initCalendar() {
+  const title = document.getElementById("cal-title");
+  const grid = document.getElementById("cal-grid");
+  const eventsBox = document.getElementById("cal-events");
+  const now = new Date();
+  let year = now.getFullYear();
+  let month = now.getMonth(); // 0 = January
+
+  function render() {
+    title.textContent = new Date(year, month, 1)
+      .toLocaleDateString(undefined, { month: "long", year: "numeric" });
+
+    // Events in this month, sorted by date
+    const monthEvents = calendarEvents
+      .filter(e => {
+        const d = parseISO(e.date);
+        return d.getFullYear() === year && d.getMonth() === month;
+      })
+      .sort((a, b) => parseISO(a.date) - parseISO(b.date));
+
+    // Count events per day number
+    const perDay = {};
+    monthEvents.forEach(e => {
+      const day = parseISO(e.date).getDate();
+      perDay[day] = (perDay[day] || 0) + 1;
+    });
+
+    // Build the grid
+    grid.innerHTML = "";
+    ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].forEach(name =>
+      grid.appendChild(el("div", { class: "cal-head", text: name }))
+    );
+
+    const startDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < startDay; i++) grid.appendChild(el("div", { class: "cal-day blank" }));
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const isToday = day === now.getDate() && month === now.getMonth() && year === now.getFullYear();
+      const dots = el("div", { class: "cal-dots" });
+      for (let n = 0; n < Math.min(perDay[day] || 0, 3); n++) dots.appendChild(el("span", { class: "cal-dot" }));
+      grid.appendChild(el("div", { class: "cal-day" + (isToday ? " today" : "") }, [
+        el("div", { text: String(day) }),
+        dots
+      ]));
+    }
+
+    // Event list
+    eventsBox.innerHTML = "";
+    if (monthEvents.length === 0) {
+      eventsBox.appendChild(el("p", { class: "empty", text: "No demo events this month." }));
+    } else {
+      monthEvents.forEach(e => eventsBox.appendChild(eventCard(e)));
+    }
+  }
+
+  function changeMonth(step) {
+    month += step;
+    if (month < 0) { month = 11; year--; }
+    if (month > 11) { month = 0; year++; }
+    render();
+  }
+
+  document.getElementById("cal-prev").addEventListener("click", () => changeMonth(-1));
+  document.getElementById("cal-next").addEventListener("click", () => changeMonth(1));
+  document.getElementById("cal-today").addEventListener("click", () => {
+    year = now.getFullYear();
+    month = now.getMonth();
+    render();
+  });
+
+  render();
+}
+
+// ---------- Start ----------
+
+renderHeader();
+renderFooter();
+
+const pageStarters = {
+  home: initHome,
+  announcements: initAnnouncements,
+  guidance: initGuidance,
+  opportunities: initOpportunities,
+  calendar: initCalendar
+};
+const startPage = pageStarters[document.body.dataset.page];
+if (startPage) startPage();
