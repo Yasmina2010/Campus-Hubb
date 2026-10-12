@@ -1,0 +1,36 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendar | Campus Hub</title>
+  <meta name="description" content="School calendar of exams, events and deadlines.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="calendar">
+  <div id="site-header"></div>
+
+  <main class="container">
+    <h1 class="page-title">School Calendar</h1>
+    <p class="page-intro">Dots mark days with events. The full list is below the calendar.</p>
+
+    <section class="card">
+      <div class="cal-controls">
+        <button id="cal-prev" class="button small" type="button" aria-label="Previous month">‹</button>
+        <h2 id="cal-title">Month</h2>
+        <button id="cal-next" class="button small" type="button" aria-label="Next month">›</button>
+      </div>
+      <div id="cal-grid" class="cal-grid"></div>
+      <button id="cal-today" class="button small outline" type="button">Go to today</button>
+    </section>
+
+    <h2 class="section-title">Events this month</h2>
+    <div id="cal-events" class="stack"></div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
