@@ -1,0 +1,53 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport"content="width=device-width, initial-scale=1"> <title>Campus Hub | Home</title> <meta name="description"content="Campus Hub: school announcements, college guidance, opportunities and calendar."> <link rel="stylesheet"href="css/styles.css"> </head> <body data-page="home"> <div id="site-header"></div>
+ <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Welcome to Campus Hub</h1>
+        <p>Everything students need in one place: news, college planning, opportunities and dates.</p>
+        <a class="button" href="announcements.html">See latest announcements</a>
+      </div>
+    </section>
+
+    <div class="container">
+      <h2 class="section-title">Explore</h2>
+      <div class="grid grid-4">
+        <a class="card tile" href="announcements.html">
+          <span class="tile-icon" aria-hidden="true">📢</span>
+          <h3>School Announcements</h3>
+          <p>News and updates from teachers and staff.</p>
+        </a>
+        <a class="card tile" href="college-guidance.html">
+          <span class="tile-icon" aria-hidden="true">🎓</span>
+          <h3>College Guidance</h3>
+          <p>Checklists and tips for Grades 10–11.</p>
+        </a>
+        <a class="card tile" href="opportunities.html">
+          <span class="tile-icon" aria-hidden="true">🌟</span>
+          <h3>Student Opportunities</h3>
+          <p>Scholarships, clubs, volunteering and more.</p>
+        </a>
+        <a class="card tile" href="calendar.html">
+          <span class="tile-icon" aria-hidden="true">📅</span>
+          <h3>School Calendar</h3>
+          <p>Exams, events and deadlines.</p>
+        </a>
+      </div>
+
+      <div class="grid grid-2 home-previews">
+        <section>
+          <h2 class="section-title">Latest announcements</h2>
+          <div id="home-announcements" class="stack"></div>
+        </section>
+        <section>
+          <h2 class="section-title">Coming up</h2>
+          <div id="home-events" class="stack"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
