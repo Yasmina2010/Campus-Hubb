@@ -1,0 +1,37 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>College Guidance | Campus Hub</title>
+  <meta name="description" content="College planning checklists and tips for Grades 10 and 11.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="guidance">
+  <div id="site-header"></div>
+
+  <main class="container">
+    <h1 class="page-title">College Guidance: Grades 10–11</h1>
+    <p class="page-intro">Pick your grade and tick off each step. Your ticks are saved on this device only.</p>
+
+    <div id="grade-tabs" class="chips" aria-label="Choose grade"></div>
+
+    <section class="card">
+      <div class="progress-row">
+        <h2 id="checklist-title">Checklist</h2>
+        <span id="checklist-progress" class="muted"></span>
+      </div>
+      <div class="progress-bar"><div id="progress-fill"></div></div>
+      <ul id="checklist" class="checklist"></ul>
+    </section>
+
+    <h2 class="section-title">Helpful tips</h2>
+    <div id="tips" class="grid grid-3"></div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
