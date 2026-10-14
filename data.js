@@ -145,3 +145,18 @@ const calendarEvents = [
   { title: "English Final Exam", date: toISO(inDays(40)), time: "9:00 AM", type: "Exam" },
   { title: "Winter Play", date: toISO(inDays(52)), time: "7:00 PM", type: "Event" }
 ];
+{
+title: “Arts Merit Award”,
+type: “Scholarship”,
+deadline: toISO(inDays(50)),
+grades: “Grade 11”,
+body: “An award for students with an arts portfolio.”
+},
+{
+title: “Connect Kazakhstan 2026”,
+type: “Event”,
+deadline: “2026-11-01”,
+grades: “Grades 10–11”,
+body: “Connect Kazakhstan 2026 — an opportunity for students to connect, learn, and explore new possibilities.”
+}
+];
