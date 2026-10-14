@@ -782,3 +782,169 @@ const pageStarters = {
 };
 const startPage = pageStarters[document.body.dataset.page];
 if (startPage) startPage();
+
+   /* ===== CAMPUS HUB: MODERN NAVY DESIGN ===== */
+
+:root {
+–primary: #173b70;
+–primary-dark: #10294f;
+–bg: #f3f6fb;
+–card: #ffffff;
+–text: #17243a;
+–muted: #64748b;
+–border: #dce4ef;
+–accent: #e7b85c;
+–radius: 18px;
+}
+
+body {
+background: var(–bg);
+color: var(–text);
+font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, sans-serif;
+line-height: 1.6;
+}
+
+.site-header {
+background: var(–primary-dark);
+color: #fff;
+box-shadow: 0 4px 18px rgba(16, 41, 79, 0.15);
+}
+
+.site-header a,
+.site-header .logo {
+color: #fff;
+}
+
+.site-header a.active {
+border-bottom: 3px solid var(–accent);
+}
+
+.demo-banner {
+background: #e8eef8;
+color: #173b70;
+text-align: center;
+padding: 8px 12px;
+font-size: 13px;
+}
+
+.container {
+max-width: 1100px;
+margin: 0 auto;
+}
+
+h1, h2, h3 {
+color: var(–primary-dark);
+letter-spacing: -0.025em;
+}
+
+h1 {
+font-size: clamp(2rem, 5vw, 3.2rem);
+font-weight: 800;
+}
+
+.card {
+background: var(–card);
+border: 1px solid var(–border);
+border-radius: var(–radius);
+padding: 22px;
+box-shadow: 0 5px 20px rgba(23, 59, 112, 0.06);
+transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+transform: translateY(-3px);
+box-shadow: 0 10px 28px rgba(23, 59, 112, 0.11);
+}
+
+button,
+.button {
+border-radius: 12px;
+font-weight: 650;
+cursor: pointer;
+}
+
+button:not(.chip):not(.menu-toggle) {
+transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:not(.chip):not(.menu-toggle):hover {
+transform: translateY(-1px);
+}
+
+.chip {
+border-radius: 999px;
+padding: 8px 16px;
+border: 1px solid var(–border);
+background: #fff;
+color: var(–primary);
+}
+
+.chip.active {
+background: var(–primary);
+border-color: var(–primary);
+color: #fff;
+}
+
+.badge {
+border-radius: 999px;
+padding: 4px 10px;
+font-size: 12px;
+font-weight: 700;
+}
+
+.event-date {
+background: #e8eef8;
+color: var(–primary);
+border-radius: 14px;
+padding: 10px;
+}
+
+input,
+textarea,
+select {
+width: 100%;
+max-width: 100%;
+padding: 12px 14px;
+border: 1px solid var(–border);
+border-radius: 12px;
+background: #fff;
+color: var(–text);
+font: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+outline: 3px solid rgba(23, 59, 112, 0.15);
+border-color: var(–primary);
+}
+
+.site-footer {
+background: var(–primary-dark);
+color: #dbe5f5;
+padding: 28px 16px;
+text-align: center;
+margin-top: 48px;
+}
+
+.site-footer p {
+margin: 0;
+}
+
+@media (max-width: 600px) {
+.card {
+padding: 17px;
+}
+
+.header-inner {
+gap: 12px;
+}
+
+.nav.open {
+background: var(–primary-dark);
+}
+
+h1 {
+font-size: 2rem;
+}
+} 
