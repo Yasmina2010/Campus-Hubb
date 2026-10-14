@@ -948,3 +948,33 @@ h1 {
 font-size: 2rem;
 }
 } 
+/* Connect Kazakhstan 2026 opportunity cards */
+#opportunity-list .card {
+border-radius: 14px;
+padding: 20px;
+margin-bottom: 16px;
+border: 1px solid #e2e8f0;
+background: #ffffff;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+#opportunity-list .card h3 {
+margin-top: 12px;
+margin-bottom: 8px;
+}
+
+#opportunity-list .card .meta {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+align-items: center;
+}
+
+#opportunity-list .card p {
+line-height: 1.6;
+}
+
+#opportunity-list .card .muted {
+margin-top: 12px;
+font-size: 0.9rem;
+}
