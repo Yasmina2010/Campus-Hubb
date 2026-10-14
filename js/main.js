@@ -277,7 +277,7 @@ function initOpportunities() {
 
   if (filters) makeFilters(filters, categories, category => {
     activeCategory = category;
-    show();
+    show(); 
   });
   if (search) search.addEventListener("input", show);
   show();
