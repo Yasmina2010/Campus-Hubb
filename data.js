@@ -76,75 +76,55 @@ const guidanceTips = [
   { title: "Ask for help", body: "Teachers and counselors can support you." }
 ];
 const opportunities = [
-  {
-    title: "Community Scholarship",
-    type: "Scholarship",
-    deadline: toISO(inDays(30)),
-    grades: "Grades 10–11",
-    body: "A sample scholarship for students who show community leadership."
-  },
-  {
-    title: "Beach Clean-Up Day",
-    type: "Volunteering",
-    deadline: toISO(inDays(14)),
-    grades: "All grades",
-    body: "Join a team to clean the local shoreline."
-  },
-  {
-    title: "Robotics Club",
-    type: "Club",
-    deadline: toISO(inDays(20)),
-    grades: "All grades",
-    body: "Build and program robots after school. Beginners welcome."
-  },
-  {
-    title: "Young Writers Contest",
-    type: "Competition",
-    deadline: toISO(inDays(45)),
-    grades: "Grades 10–11",
-    body: "Submit a short story for the school magazine."
-  },
-  {
-    title: "Summer Job Shadow Program",
-    type: "Internship",
-    deadline: toISO(inDays(60)),
-    grades: "Grade 11",
-    body: "Spend a day learning about a professional career."
-  },
-  {
-    title: "Peer Tutoring Team",
-    type: "Volunteering",
-    deadline: toISO(inDays(25)),
-    grades: "Grades 10–11",
-    body: "Help younger students with math and reading."
-  },
-  {
-    title: "STEM Challenge",
-    type: "Competition",
-    deadline: toISO(inDays(35)),
-    grades: "All grades",
-    body: "Solve an engineering challenge with a team."
-  },
-  {
-    title: "Arts Merit Award",
-    type: "Scholarship",
-    deadline: toISO(inDays(50)),
-    grades: "Grade 11",
-    body: "An award for students with an arts portfolio."
-  }
-];
-const calendarEvents = [
-  { title: "Welcome Assembly", date: toISO(inDays(2)), time: "9:00 AM", type: "Event" },
-  { title: "College Info Night", date: toISO(inDays(6)), time: "6:30 PM", type: "Guidance" },
-  { title: "Math Midterm Exam", date: toISO(inDays(9)), time: "10:00 AM", type: "Exam" },
-  { title: "Parent-Teacher Meetings", date: toISO(inDays(13)), time: "3:00 PM", type: "Meeting" },
-  { title: "Beach Clean-Up Day", date: toISO(inDays(14)), time: "9:00 AM", type: "Event" },
-  { title: "Science Fair", date: toISO(inDays(21)), time: "1:00 PM", type: "Event" },
-  { title: "Scholarship Deadline", date: toISO(inDays(30)), time: "11:59 PM", type: "Deadline" },
-  { title: "School Holiday", date: toISO(inDays(34)), time: "All day", type: "Holiday" },
-  { title: "English Final Exam", date: toISO(inDays(40)), time: "9:00 AM", type: "Exam" },
-  { title: "Winter Play", date: toISO(inDays(52)), time: "7:00 PM", type: "Event" }
-];
+{
+title: “Community Scholarship”,
+type: “Scholarship”,
+deadline: toISO(inDays(30)),
+grades: “Grades 10–11”,
+body: “A sample scholarship for students who show community leadership.”
+},
+{
+title: “Beach Clean-Up Day”,
+type: “Volunteering”,
+deadline: toISO(inDays(14)),
+grades: “All grades”,
+body: “Join a team to clean the local shoreline.”
+},
+{
+title: “Robotics Club”,
+type: “Club”,
+deadline: toISO(inDays(20)),
+grades: “All grades”,
+body: “Build and program robots after school. Beginners welcome.”
+},
+{
+title: “Young Writers Contest”,
+type: “Competition”,
+deadline: toISO(inDays(45)),
+grades: “Grades 10–11”,
+body: “Submit a short story for the school magazine.”
+},
+{
+title: “Summer Job Shadow Program”,
+type: “Internship”,
+deadline: toISO(inDays(60)),
+grades: “Grade 11”,
+body: “Spend a day learning about a professional career.”
+},
+{
+title: “Peer Tutoring Team”,
+type: “Volunteering”,
+deadline: toISO(inDays(25)),
+grades: “Grades 10–11”,
+body: “Help younger students with math and reading.”
+},
+{
+title: “STEM Challenge”,
+type: “Competition”,
+deadline: toISO(inDays(35)),
+grades: “All grades”,
+body: “Solve an engineering challenge with a team.”
+},
 {
 title: “Arts Merit Award”,
 type: “Scholarship”,
@@ -159,4 +139,20 @@ deadline: “2026-11-01”,
 grades: “Grades 10–11”,
 body: “Connect Kazakhstan 2026 — an opportunity for students to connect, learn, and explore new possibilities.”
 }
+];
+
+const calendarEvents = [
+{ title: “Welcome Assembly”, date: toISO(inDays(2)), time: “9:00 AM”, type: “Event” },
+{ title: “College Info Night”, date: toISO(inDays(6)), time: “6:30 PM”, type: “Guidance” },
+{ title: “Math Midterm Exam”, date: toISO(inDays(9)), time: “10:00 AM”, type: “Exam” },
+{ title: “Parent-Teacher Meetings”, date: toISO(inDays(13)), time: “3:00 PM”, type: “Meeting” },
+{ title: “Beach Clean-Up Day”, date: toISO(inDays(14)), time: “9:00 AM”, type: “Event” },
+{ title: “Science Fair”, date: toISO(inDays(21)), time: “1:00 PM”, type: “Event” },
+{ title: “Scholarship Deadline”, date: toISO(inDays(30)), time: “11:59 PM”, type: “Deadline” },
+{ title: “School Holiday”, date: toISO(inDays(34)), time: “All day”, type: “Holiday” },
+{ title: “English Final Exam”, date: toISO(inDays(40)), time: “9:00 AM”, type: “Exam” },
+{ title: “Winter Play”, date: toISO(inDays(52)), time: “7:00 PM”, type: “Event” },
+{ title: “Connect Kazakhstan Fair — Day 1”, date: “2026-10-20”, time: “9:00 AM”, type: “Event” },
+{ title: “Connect Kazakhstan Fair — Day 2”, date: “2026-10-21”, time: “9:00 AM”, type: “Event” },
+{ title: “Connect Kazakhstan Fair — Day 3”, date: “2026-10-22”, time: “9:00 AM”, type: “Event” }
 ];
