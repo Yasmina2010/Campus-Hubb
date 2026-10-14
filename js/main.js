@@ -246,23 +246,24 @@ function initOpportunities() {
 
   const search = document.getElementById("opportunity-search");
   const filters = document.getElementById("opportunity-filters");
-  const categories = [...new Set(opportunities.map(o => o.category))];
+  const categories = [...new Set(opportunities.map(o => o.type))];
   let activeCategory = "All";
 
   function show() {
     const query = search ? search.value.toLowerCase().trim() : "";
     list.innerHTML = "";
     opportunities
-      .filter(o => activeCategory === "All" || o.category === activeCategory)
-      .filter(o => `${o.title} ${o.description || ""} ${o.category}`.toLowerCase().includes(query))
+      .filter(o => activeCategory === "All" || o.type === activeCategory)
+      .filter(o => `${o.title} ${o.body || ""} ${o.type} ${o.grades || ""}`.toLowerCase().includes(query))
       .forEach(o => {
         const card = el("article", { class: "card" }, [
           el("div", { class: "meta" }, [
-            el("span", { class: "badge", text: o.category }),
+            el("span", { class: "badge", text: o.type }),
+            el("span", { class: "badge", text: o.grades || "All grades" }),
             DEMO_BADGE()
           ]),
           el("h3", { text: o.title }),
-          el("p", { text: o.description || "" })
+          el("p", { text: o.body || "" })
         ]);
         if (o.deadline) {
           card.appendChild(el("p", { class: "muted", text: "Deadline: " + o.deadline }));
